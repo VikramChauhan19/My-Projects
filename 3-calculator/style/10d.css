@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(71, 179, 179);
+}
+.digit-button{
+    background-color: rgba(44, 43, 43, 0.932);
+    color: white;
+    padding:15px 20px;
+    border-radius: 58px;
+    border: none;
+  }
+  .op-button{
+    background-color: rgba(233, 202, 26, 0.911);
+    color: white;
+    padding:15px 20px;
+    border-radius: 58px;
+    border: none;
+  }
+  .result{
+    font-size: 29px;
+  }
