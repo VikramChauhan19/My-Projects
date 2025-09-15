@@ -17,7 +17,7 @@ app.get("/profile/:username",function(req,res){  //: se dynamic ho jayega mtlb i
 });
 
 app.get("/profile/:username/:age",function(req,res){
-    res.send("chal rha he");
+    res.send(`Welcome, ${req.params.username} of age ${req.params.age}`)
 })
 
 
