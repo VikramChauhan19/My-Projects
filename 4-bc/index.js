@@ -9,6 +9,15 @@ app.set('view engine', 'ejs');
 
 app.get("/",function(req,res){
     res.render("index.ejs");
+});
+
+app.get("/profile/:username",function(req,res){  //: se dynamic ho jayega mtlb iske jagah kuch bhi aa skta he
+    
+    res.send(`Welcome, ${req.params.username}`);
+});
+
+app.get("/profile/:username/:age",function(req,res){
+    res.send("chal rha he");
 })
 
 
