@@ -14,9 +14,17 @@ app.use(express.static(path.join(__dirname,"public")));
 app.get("/",function(req,res){
     fs.readdir(`./files`,function(err,files){
         if(err) console.error(err);
-        else console.log(files);
+        else{
+             res.render("index",{files:files});
+        }
     })
-    res.render("index");
+   
+})
+app.post("/create",function(req,res){
+    fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`,req.body.details, function(err){
+        res.redirect("/")
+    })
+      
 })
 
 app.listen(3000);
