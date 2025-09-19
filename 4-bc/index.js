@@ -9,8 +9,6 @@ app.use(express.urlencoded({
     extended:true
 }));
 app.use(express.static(path.join(__dirname,"public")));
-
-
 app.get("/",function(req,res){
     fs.readdir(`./files`,function(err,files){
         if(err) console.error(err);
@@ -20,8 +18,6 @@ app.get("/",function(req,res){
     })
    
 })
-
-
 
 app.get('/files/:filename',function(req,res){
     fs.readFile(`./files/${req.params.filename}`,"utf-8",function(err,filedata){
@@ -34,7 +30,7 @@ app.get('/edit/:filename',function(req,res){
 
 
 
-app.post("/create",function(req,res){
+app.post("/create",function(req,res){ //hii
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`,req.body.details, function(err){
         res.redirect("/")
     })
