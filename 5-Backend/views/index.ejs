@@ -4,8 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+ 
 </head>
 <body>
-  <h1>Hello World</h1>
+  <div class="w-full h-full  bg-zinc-900 p-10 text-white">
+    <h1 class="text-3xl tracking-tighter mb-3">Create User</h1>
+    <form action="">
+        <input class="px-4  py-2 border-2 border-zinc-800 bg-transparent outline-none rounded-md focus:border-blue-500" type="text" placeholder="name">
+        <input class="px-5 py-2 border-2 border-zinc-800 bg-transparent outline-none rounded-md focus:border-blue-500" type="text" placeholder="email">
+        <input class="px-5 py-2 border-2 border-zinc-800 bg-transparent outline-none rounded-md focus:border-blue-500" type="text" placeholder="image url">
+        <input class="px-5 py-2 bg-blue-500 rounded-lg ml-3" type="submit" placeholder="Create User">
+
+    </form>
+
+  </div>
+  
 </body>
 </html>
