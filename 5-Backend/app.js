@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const userModel = require("./models/user");
 
 app.set("view engine", "ejs");
 app.use(express.json()); //Lets the server read JSON data sent from clients (like API requests).
@@ -10,8 +11,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/',(req,res)=>{
     res.render('index');
 })
-app.get('/read',(req,res)=>{
-    res.render('read');
+app.get('/read', async (req,res)=>{
+    let allUsers =await userModel.find();
+
+    res.render('read',{users:allUsers});
+})
+app.get('/delete/:id', async (req,res)=>{
+    let allUsers =await userModel.findOneAndDelete({_id:req.params.id});
+
+    res.redirect("/read");
+})
+app.post('/create',async (req,res)=>{
+    const createdUser = await userModel.create({
+        name:req.body.name,
+        email:req.body.email,
+        image:req.body.imageurl
+    })
+    res.send(createdUser);
+   
 })
 
 app.listen(3000);
+
+
+
+
