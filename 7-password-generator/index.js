@@ -10,3 +10,19 @@ const symbolsCheck = document.querySelector("#symbols");
 const indicator = document.querySelector("[data-indicator]");
 const generateBtn = document.querySelector("generatePassword");
 const allCheckbox = document.querySelectorAll("input[type=checkbox]");
+
+let password = "";
+let passwordLength = 10;
+let checkpoint = 1;
+handleSlider();
+
+//set password length
+function handleSlider(){
+    inputSlider.value = passwordLength;
+    lengthDisplay.innerText = passwordlength;
+}
+
+//set indicator
+function setIndicator(color){
+    indicator.style.backgroundColor = color;
+}
