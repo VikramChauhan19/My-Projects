@@ -16,10 +16,21 @@ app.get('/read', async (req,res)=>{
 
     res.render('read',{users:allUsers});
 })
+app.get('/edit/:id', async (req,res)=>{
+    let person =await userModel.findOne({_id:req.params.id});
+
+    res.render('edit',{person});
+})
 app.get('/delete/:id', async (req,res)=>{
     let allUsers =await userModel.findOneAndDelete({_id:req.params.id});
 
     res.redirect("/read");
+})
+app.post('/update/:id',async (req,res)=>{
+    let {name,image,email} = req.body;
+    const createdUser = await userModel.findOneAndUpdate({_id:req.params.id},{name,image,email},{new:true});
+    res.redirect("/read");
+   
 })
 app.post('/create',async (req,res)=>{
     const createdUser = await userModel.create({
@@ -27,7 +38,7 @@ app.post('/create',async (req,res)=>{
         email:req.body.email,
         image:req.body.imageurl
     })
-    res.send(createdUser);
+    res.redirect("/read");
    
 })
 
